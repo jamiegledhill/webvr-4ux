@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toggle Environment - A-Frame</title>
+    <meta name="description" content="Basic Scene with Environment - A-Frame">
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="js/aframe-environment-select-component.js"></script>
+  </head>
+  <body>
+    <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
+         threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
+    <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
+    <a-scene environment="preset: forest; playArea:0.1; dressing:trees; dressingAmount:100">
+        <a-assets>
+            <img id="image1" src="images/image1.jpg">
+            <img id="image2" src="images/image2.jpg">
+            <img id="image3" src="images/image3.jpg">
+            <img id="forest-floor" src="textures/drawn-bush.jpg"></img>
+          </a-assets>
+          <a-entity position="0 1.6 0" camera look-controls wasd-controls>
+            <a-entity cursor="rayOrigin: mouse" raycaster="objects: .interactive"></a-entity>
+          </a-entity>
+          <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects:.interactive"></a-entity>
+          <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects:.interactive" line="color: #118A7E">
+          </a-entity>
+          <a-sky color="#123456"></a-sky>
+          <a-plane color="#010101" rotation="0 180 0" position="0 1.4 -4.01" width="2.6" height="0.5" side="double">
+          </a-plane>
+          <a-box class="interactive" environment-select="preset:poison" color="#2a9660" position="-1 1.4 -4" depth="0.4"
+            height="0.4" width="0.4"></a-box>
+          <a-box class="interactive" environment-select="preset:arches" color="#2a9660" position="-0.5 1.4 -4" depth="0.4" height="0.4"
+            width="0.4"></a-box>
+          <a-box class="interactive" environment-select="preset:tron" color="#2a9660" position="0 1.4 -4" depth="0.4" height="0.4"      
+            width="0.4"></a-box>
+            <a-box class="interactive" environment-select="preset:japan" color="#2a9660" position="0.5 1.4 -4" depth="0.4"
+            height="0.4" width="0.4"></a-box>
+          <a-box class="interactive" environment-select="preset:yavapai" color="#2a9660" position="1 1.4 -4" depth="0.4" height="0.4"
+            width="0.4"></a-box>
+    </a-scene>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Multiple Selection Image Viewer</title>
+  <script src="js/aframe-master.js"></script>
+  <script src="js/aframe-proxy-event-component.min.js"></script>
+  <script src="js/aframe-multiple-select-component.js"></script>
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="image1" src="images/image1.jpg">
+      <img id="image2" src="images/image2.jpg">
+      <img id="image3" src="images/image3.jpg">
+      <img id="forest-floor" src="textures/drawn-bush.jpg"></img>
+    </a-assets>
+    <a-entity position="0 1.6 0" camera look-controls wasd-controls>
+      <a-entity cursor="rayOrigin: mouse" raycaster="objects: .interactive"></a-entity>
+    </a-entity>
+    <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects:.interactive"></a-entity>
+    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects:.interactive" line="color: #118A7E">
+    </a-entity>
+    <a-sky color="#123456"></a-sky>
+    <a-plane color="#010101" rotation="0 180 0" position="0 2.8 -4.01" width="4" height="3.5" side="double">
+    </a-plane>
+    <a-entity id="image1Holder" position="0 3 -4" geometry="primitive: plane; height: 2.56; width: 3.24"
+      material="shader: flat; src: #image1; opacity: 0; transparent: true">
+    </a-entity>
+    <a-entity id="image2Holder" position="0 3 -4" geometry="primitive: plane; height: 2.56; width: 3.24"
+      material="shader: flat; src: #image2;  opacity: 0; transparent: true">
+    </a-entity>
+    <a-entity id="image3Holder" position="0 3 -4" geometry="primitive: plane; height: 2.56; width: 3.24"
+      material="shader: flat; src: #image3; opacity: 0; transparent: true">
+    </a-entity>
+    <a-box class="interactive" multiple-select="target:#image1Holder" color="#2a9660" position="-1.4 1.4 -4" depth="0.4"
+      height="0.4" width="0.4"></a-box>
+    <a-box class="interactive" multiple-select="target:#image2Holder" color="#2a9660" position="-0.9 1.4 -4" depth="0.4" height="0.4"
+      width="0.4"></a-box>
+    <a-box class="interactive" multiple-select="target:#image3Holder" color="#2a9660" position="-0.4 1.4 -4" depth="0.4" height="0.4"
+      width="0.4"></a-box>
+    <a-plane src="#forest-floor" rotation="-90 0 0" width="100" height="100" repeat="50 50"></a-plane>
+  </a-scene>
+</body>
