@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>WebVR Cubes</title>
+  <script src="js/aframe-master.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="boxTexture" src="textures/wall.png">
+      <img id="groundTexture" src="textures/floor.jpg">
+      <img id="skyTexture" src="textures/sky.jpg">
+      <a-asset-item id="spider" src="models/spider/scene.gltf"></a-asset-item>
+    </a-assets>
+    <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
+    <a-plane src="#groundTexture" rotation="-90 0 0" height="60" width="60"></a-plane>
+  </a-scene>
+</body>
+</html>
